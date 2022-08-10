@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class JobVacation{
+public class JobVacancy{
     public static void main(String[]args){
 		//deklarasi variable
         int umur,pengalaman;
