@@ -78,7 +78,7 @@ public class RpsGame {
                 if(isValid){
                 }
             }while(isCheckingValid);
-/*             do{
+             do{
                 System.out.print(templatePlayerChoiceTypeAttack);
                 playerTypeAttack = input.next();
 
@@ -89,7 +89,7 @@ public class RpsGame {
                 }else{
                     System.out.println(templateWrongInputChoice + "\n");
                 }
-            }while(isCheckingValid); */
+            }while(isCheckingValid);
             
             isCheckingValid = true;
             do{
