@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class GajiPNSDevis {
+public class GajiPNSDevis { //javac GajiPNSDevis.java
     public static void main(String[] args){
         //deklarasi variable
         String  name, workspaceGroup, maritalStatus;
@@ -24,7 +24,7 @@ public class GajiPNSDevis {
         totalChild      = inputTypeNumberLimit(INPUT_TOTAL_CHILDRENS, MIN, MAX_TOTAL_CHILD);
         //calculation
         basicSalary             = getBasicSalary(workspaceGroup, classRank, workPeriods);
-        familyAllowance         = getFamilyAllowance(maritalStatus, basicSalary);
+        familyAllowance         = getFamilyAllowance(maritalStatus, basicSalary, totalChild);
         childAllowance          = getChildAllowance(totalChild, basicSalary);
         riceAllowance           = getRiceAllowance(maritalStatus, totalChild);
         generalAllowance        = getGeneralAllowance(classRank);
@@ -349,11 +349,15 @@ public class GajiPNSDevis {
     }
 
     //fungsi untuk mendapatkan tunjangan keluarga
-    public static double getFamilyAllowance(String maritalStatus, double basicSalary){
+    public static double getFamilyAllowance(String maritalStatus, double basicSalary, int totalChild){
         double familyAllowance = 0;
 
         if(maritalStatus.equalsIgnoreCase(MARITAL_STATUS[0])){
             familyAllowance = basicSalary * FAMILY_ALLOWANCE_PERCENT;
+        }else if(maritalStatus.equalsIgnoreCase(MARITAL_STATUS[2])){
+            if(totalChild > MIN){
+                familyAllowance = basicSalary * FAMILY_ALLOWANCE_PERCENT;
+            }
         }
 
         return familyAllowance;
@@ -365,6 +369,8 @@ public class GajiPNSDevis {
 
         if(totalChild <= MAX_CHILD_ALLOWANCE){
             childAllowance = basicSalary * (totalChild * CHILD_ALLOWANCE_PERCENT );
+        }else{
+            childAllowance = basicSalary * (2 * CHILD_ALLOWANCE_PERCENT);
         }
 
         return childAllowance;
@@ -375,11 +381,20 @@ public class GajiPNSDevis {
         double riceAllowance = 0;
 
         if(maritalStatus.equalsIgnoreCase(MARITAL_STATUS[0])){
-            riceAllowance = RICE_ALLOWANCE * (2 + totalChild);
+            if(totalChild <= MAX_CHILD_ALLOWANCE){
+                riceAllowance = RICE_ALLOWANCE * (2 + totalChild);
+            }else{
+                riceAllowance = RICE_ALLOWANCE * 4;
+            }   
+        }else if(maritalStatus.equalsIgnoreCase(MARITAL_STATUS[1])){
+                riceAllowance = RICE_ALLOWANCE;
         }else if(maritalStatus.equalsIgnoreCase(MARITAL_STATUS[2])){
-            riceAllowance = RICE_ALLOWANCE * (1 + totalChild);
+            if(totalChild <= MAX_CHILD_ALLOWANCE){
+                riceAllowance = RICE_ALLOWANCE * (1 + totalChild);
+            }else{
+                riceAllowance = RICE_ALLOWANCE * 4;
+            }
         }
-
         return riceAllowance;
     }
     
@@ -416,11 +431,20 @@ public class GajiPNSDevis {
             nettSalaryPerYear = nettSalaryPerMonth * 12;
             
             if(maritalStatus.equalsIgnoreCase(MARITAL_STATUS[0])){
-                pphDeduction = (nettSalaryPerYear - (SELF_TAX + WIFE_TAX + (totalChild * CHILD_TAX))) / 12;
+                if(totalChild <= 3){
+                    pphDeduction = (nettSalaryPerYear - (SELF_TAX + WIFE_TAX + (totalChild * CHILD_TAX))) / 12;
+                }else{
+                    pphDeduction = (nettSalaryPerYear - (SELF_TAX + WIFE_TAX + (3 * CHILD_TAX))) / 12;
+                }
             }else if(maritalStatus.equalsIgnoreCase(MARITAL_STATUS[1])){
                 pphDeduction = (nettSalaryPerYear - SELF_TAX) / 12;
             }else if(maritalStatus.equalsIgnoreCase(MARITAL_STATUS[2])){
-                pphDeduction = (nettSalaryPerYear - (SELF_TAX + (totalChild * CHILD_TAX))) / 12;
+                if(totalChild <= 3){
+                    pphDeduction = (nettSalaryPerYear - (SELF_TAX + (totalChild * CHILD_TAX))) / 12;
+                }else{
+                    pphDeduction = (nettSalaryPerYear - (SELF_TAX + (3 * CHILD_TAX))) / 12;
+                }
+                
             }
         }
 
@@ -523,8 +547,7 @@ public class GajiPNSDevis {
     public static final int CLASS_RANK [] = {1, 2, 3, 4}, MIN_CLASS_RANK = 1, MAX_CLASS_RANK = 4, MIN = 0, MAX_WORK_PERIOD = 60, MAX_TOTAL_CHILD = 100, MAX_CHILD_ALLOWANCE = 2;
     public static final String TEMPLATE_LETTER = "huruf", TEMPLATE_NUMBER = "angka", TEMPLATE_CLASS_RANK = "Golongan Pangkat", 
     TEMPLATE_WORK_PERIODS = "Lama Bekerja", TEMPLATE_TOTAL_CHILD = "Jumlah Anak", TEMPLATE_SALARY_SLIP = "\t\s\s\s\s\sSlip Gaji PNS",
-    WORKSPACE_GROUP [] = {"A", "B", "C", "D"}, WORKSPACE_GROUP4 [] = {"A", "B", "C", "D", "E"},
-    MARITAL_STATUS [] = {"kawin", "belum kawin", "cerai"},
+    WORKSPACE_GROUP [] = {"A", "B", "C", "D"}, WORKSPACE_GROUP4 [] = {"A", "B", "C", "D", "E"}, MARITAL_STATUS [] = {"kawin", "belum kawin", "cerai"},
     LINE = "\n=========================================\n",
     HEADER_PROGRAM = "\tSelamat Datang di Aplikasi\n\t\s\s\sPerhitungan Gaji PNS\n\tGolongan I s.d IV tahun 2019",
     INPUT_NAME = "\nMasukkan Nama : ", OUTPUT_NAME = "Nama\t\t\t: ",
