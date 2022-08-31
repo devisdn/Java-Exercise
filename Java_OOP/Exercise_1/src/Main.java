@@ -7,5 +7,7 @@ public class Main {
         System.out.println(person1.name);
         System.out.println(person1.address);
         System.out.println(person1.country);
+
+        person1.sayHello("Padepokan 79");
     }
 }
