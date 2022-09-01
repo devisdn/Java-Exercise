@@ -7,10 +7,15 @@ public class Person {
     Person(){
 
     }
-    //constructor with parameter
-    Person(String paramName, String paramAdress){
+    //constructor with 1 parameter
+    Person(String paramName){
         name = paramName;
-        address = paramAdress;
+    }
+    //constructor with 2 parameters
+    Person(String name, String address){
+        //using "this" to avoid variable shadowing
+        this.name = name;
+        this.address = address;
     }
 
     void sayHello(String paramName){

@@ -1,0 +1,12 @@
+- Class           : Pen
+- Field/Attribute :
+    1. String penSeries
+    2. String penMerk
+    3. String penColor
+    4. Integer penNeedleSize
+    5. String penFeatures
+- Method/Behavior :
+    1. packing
+    2. refill
+    3. shipping
+    4. mecanism
