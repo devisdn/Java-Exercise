@@ -23,10 +23,8 @@ public class Book {
     }
 
     // method
-    public Double calculatePrice(){
-        Double calculatedprice = 0.0;
-
-        return calculatedprice;
+    public void calculatePrice(){
+        Double calculatedPrice = 1.5;
     }
 
     // getter & setter
