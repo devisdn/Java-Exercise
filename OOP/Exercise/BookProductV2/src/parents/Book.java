@@ -24,7 +24,7 @@ public class Book {
 
     // method
     public void calculatePrice(){
-        Double calculatedPrice = 1.5;
+        setPrice(1.5 * publisher.getPaper().getPaperPrice());
     }
 
     // getter & setter
