@@ -14,17 +14,29 @@ public class Book {
         super();
     }
 
-    public Book(String title, String releaseDate, Author author, Publisher publisher, double price) {
+    public Book(String title, String releaseDate, Author author, Publisher publisher) {
+        super();
         this.title = title;
         this.releaseDate = releaseDate;
         this.author = author;
         this.publisher = publisher;
-        this.price = price;
+        calculatePrice();
     }
 
     // method
     public void calculatePrice(){
         setPrice(1.5 * publisher.getPaper().getPaperPrice());
+    }
+
+    @Override
+    public String toString() {
+        return  "\n==========================================================\n" +
+                "\nBook Title\t: " + title +
+                "\nBook Author\t: " + author.getFirstName() + " " + author.getLastName() +
+                "\nCountry\t\t: " + author.getCountry() +
+                "\nRelease Date\t: " + releaseDate +
+                "\nPublisher\t: " + publisher.getCompanyName() +
+                "\nPrice Book\t: " + price;
     }
 
     // getter & setter

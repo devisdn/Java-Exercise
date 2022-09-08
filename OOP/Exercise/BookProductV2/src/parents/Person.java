@@ -16,8 +16,9 @@ public class Person {
     // method
     @Override
     public String toString() {
-        return  "\nName\t: " + firstName + " " + lastName +
-                "\nCountry\t: " + country;
+        return  "\n==========================================================\n" +
+                "\nName\t\t: " + firstName + " " + lastName +
+                "\nCountry\t\t: " + country;
     }
 
     // getter & setter

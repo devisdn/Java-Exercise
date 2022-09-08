@@ -19,6 +19,15 @@ public class Author extends Person {
         this.age = age;
     }
 
+    // method
+    @Override
+    public String toString() {
+        return  super.toString() +
+                "\nGender\t\t: " + gender +
+                "\nGenre\t\t: " + genre +
+                "\nAge\t\t: " + age;
+    }
+
     // getter & setter
     public String getGender() {
         return gender;

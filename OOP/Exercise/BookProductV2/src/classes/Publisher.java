@@ -16,6 +16,15 @@ public class Publisher {
         this.paper = paper;
     }
 
+    // method
+    @Override
+    public String toString() {
+        return  "\n==========================================================\n" +
+                "\nPublisher\t: " + companyName + 
+                "\nCountry\t\t: " + country + 
+                paper.toString();
+    }
+
     // getter & setter
     public String getCompanyName() {
         return companyName;

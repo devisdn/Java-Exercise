@@ -12,12 +12,18 @@ public class Comic extends Book {
         super();
     }
 
-    public Comic(String title, String releaseDate, Author author, Publisher publisher, double price,
-            Boolean isVolumeSeries) {
-        super(title, releaseDate, author, publisher, price);
+    public Comic(String title, String releaseDate, Mangaka mangaka, Publisher publisher, Boolean isVolumeSeries) {
+        super(title, releaseDate, mangaka, publisher);
         this.isVolumeSeries = isVolumeSeries;
     }
 
+    // method
+    @Override
+    public String toString(){
+        return super.toString() + 
+                "\nVolume Series\t: " + isVolumeSeries;
+    }
+    
     // getter & setter
     public Boolean getVolumeSeries() {
         return isVolumeSeries;

@@ -15,6 +15,13 @@ public class Reviewer extends Person{
         this.isVerified = isVerified;
     }
 
+    // method
+    @Override
+    public String toString() {
+        return  super.toString() +
+                "\nisVerified\t: " + isVerified;
+    }
+
     // getter & setter
     public Boolean getVerified() {
         return isVerified;

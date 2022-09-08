@@ -9,10 +9,16 @@ public class Mangaka extends Author {
         super();
     }
 
-    public Mangaka(String firstName, String lastName, String country, String gender, String genre, Integer age,
-            String rating) {
+    public Mangaka(String firstName, String lastName, String country, String gender, String genre, Integer age, String rating) {
         super(firstName, lastName, country, gender, genre, age);
         this.rating = rating;
+    }
+
+    // method
+    @Override
+    public String toString() {
+        return  super.toString() +
+                "\nRating\t\t: " + rating;
     }
 
     // getter & setter

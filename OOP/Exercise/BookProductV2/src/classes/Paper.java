@@ -15,6 +15,14 @@ public class Paper{
         this.paperPrice = paperPrice;
     }
 
+    // method
+    @Override
+    public String toString() {
+        return  "\n==========================================================\n" +
+                "\nPaper Quality\t: " + qualityPaper + 
+                "\nPaper Price\t: " + paperPrice;
+    }
+
     // getter & setter
     public String getQualityPaper() {
         return qualityPaper;
