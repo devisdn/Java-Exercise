@@ -18,8 +18,7 @@ public class Paper{
     // method
     @Override
     public String toString() {
-        return  "\n==========================================================\n" +
-                "\nPaper Quality\t: " + qualityPaper + 
+        return  "\nPaper Quality\t: " + qualityPaper + 
                 "\nPaper Price\t: " + paperPrice;
     }
 
