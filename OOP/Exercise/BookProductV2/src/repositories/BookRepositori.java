@@ -11,6 +11,7 @@ public class BookRepositori {
     public static Map<String, Object> getAllBookAndRating(){
         List<Book>  listBook = new ArrayList<Book>();
         List<Publisher> listPublisher = new ArrayList<Publisher>();
+        List<Paper> listPaper = new ArrayList<Paper>();
 
         Paper paper1 = new Paper("Best", 10000.0);
         Paper paper2 = new Paper("Good", 7000.0);
@@ -53,8 +54,8 @@ public class BookRepositori {
         Publisher publisher8 = new Publisher("Bentang Pustaka", "Indonesia", paper8);
         Publisher publisher9 = new Publisher("publisher25", "Indonesia", paper9);
         Publisher publisher10 = new Publisher("publisher23", "Indonesia", paper10);
-        Publisher publisher11 = new Publisher("Marvel Entertainment International Ltd","England", paper11);
 
+        Publisher publisher11 = new Publisher("Marvel Entertainment International Ltd","England", paper11);
         Publisher publisher12 = new Publisher("John Wiley & Sons, Inc","United States", paper12);
         Publisher publisher13 = new Publisher("Nature America","United States", paper13);
         Publisher publisher14 = new Publisher("Scholastic, Inc.","United States", paper14);
@@ -216,18 +217,17 @@ public class BookRepositori {
         Reviewer reviewer19 = new Reviewer("Wandi", "Reksen", "Indonesia", true);
         Reviewer reviewer20 = new Reviewer("Billy", "Willy", "Indonesia", false);
 
-        Reviewer arif = new Reviewer("Arif", "Yudistira", "Indonesia", true);
-        Reviewer kurnia = new Reviewer("Kurnia", "Salam", "Indonesia", false);
-        Reviewer patris = new Reviewer("Patris", "Kurnia", "Indonesia", true);
-        Reviewer akhmad = new Reviewer("Akhmad", "Idris", "Indonesia", false);
-        Reviewer ubaidillah = new Reviewer("Ubaidillah", "Rosyid", "Indonesia", true);
+        Reviewer reviewer21 = new Reviewer("Arif", "Yudistira", "Indonesia", true);
+        Reviewer reviewer22 = new Reviewer("Kurnia", "Salam", "Indonesia", false);
+        Reviewer reviewer23 = new Reviewer("Patris", "Kurnia", "Indonesia", true);
+        Reviewer reviewer24 = new Reviewer("Akhmad", "Idris", "Indonesia", false);
+        Reviewer reviewer25 = new Reviewer("Ubaidillah", "Rosyid", "Indonesia", true);
 
         RatingBook rating1 = new RatingBook(comic1,reviewer1,10.0);
         RatingBook rating2 = new RatingBook(comic2,reviewer2,9.5);
         RatingBook rating3 = new RatingBook(comic3,reviewer3,9.0);
         RatingBook rating4 = new RatingBook(comic4,reviewer4,8.5);
         RatingBook rating5 = new RatingBook(comic5,reviewer5,8.0);
-
 
         RatingBook ratingBook1 = new RatingBook(book11,reviewer11,90.0);
         RatingBook ratingBook2 = new RatingBook(book12,reviewer12,80.0);
@@ -247,11 +247,11 @@ public class BookRepositori {
         RatingBook ratingBook19 = new RatingBook(book19, reviewer19, 3.7);
         RatingBook ratingBook20 = new RatingBook(book20, reviewer20, 4.2);
 
-        RatingBook rating21 = new RatingBook(book21, arif, 4.3);
-        RatingBook rating22 = new RatingBook(book22, kurnia, 3.9);
-        RatingBook rating23 = new RatingBook(book23, patris, 4.2);
-        RatingBook rating24 = new RatingBook(book24, akhmad, 4.6);
-        RatingBook rating25 = new RatingBook(book25, ubaidillah, 3.3);
+        RatingBook rating21 = new RatingBook(book21, reviewer21, 4.3);
+        RatingBook rating22 = new RatingBook(book22, reviewer22, 3.9);
+        RatingBook rating23 = new RatingBook(book23, reviewer23, 4.2);
+        RatingBook rating24 = new RatingBook(book24, reviewer24, 4.6);
+        RatingBook rating25 = new RatingBook(book25, reviewer25, 3.3);
 
 /*      Customer cust1 = new Customer("Adam","Fariz","Indonesia","Male","Cibatu, Garut, West Java","089587652938","44197","adamfariz@gmail.com");
         Customer cust2 = new Customer("Novia","Alawiyah","Indonesia","Female","Wanaraja, Garut, West Java","081388657620","44183","noviaa@gmail.com");
@@ -318,13 +318,19 @@ public class BookRepositori {
         listPublisher = new ArrayList<Publisher>(Arrays.asList(publisher1, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7, publisher8,
                 publisher9, publisher10, publisher11, publisher12, publisher13, publisher14, publisher15, publisher16, publisher17, publisher18, publisher19, publisher20,
                 publisher25, publisher22, publisher23, publisher24, publisher25 ));
+        listPaper = new ArrayList<Paper>(Arrays.asList(paper1, paper2, paper3, paper4, paper5, paper6, paper7, paper8, paper9, paper10, paper11, paper12, paper13, paper14, 
+                paper15, paper16, paper17, paper18, paper19, paper20, paper21, paper22, paper23, paper24, paper25));
+        
         Map<String,Object> result = new HashMap<String,Object>();
 
         List<RatingBook> listRatingBook = new ArrayList<RatingBook>(Arrays.asList(rating1, rating2, rating3, rating4, rating5, rating21, rating22, rating23, rating24, rating25, ratingBook1, ratingBook2, ratingBook3, ratingBook4, ratingBook5, ratingBook6, ratingBook7, ratingBook8, ratingBook9, ratingBook10, ratingBook16,ratingBook17, ratingBook18, ratingBook19, ratingBook20));
+        List<Reviewer> listReviewer = new ArrayList<Reviewer>(Arrays.asList(reviewer1, reviewer2, reviewer3, reviewer4, reviewer5, reviewer6, reviewer7, reviewer8, reviewer9, reviewer10, reviewer11, reviewer12, reviewer13, reviewer14, reviewer15, reviewer16, reviewer17, reviewer18, reviewer19, reviewer20, reviewer21, reviewer22, reviewer23, reviewer24, reviewer25));
         
         result.put("listBook", listBook);
         result.put("listRatingBook", listRatingBook );
+        result.put("listReviewer", listReviewer);
         result.put("listPublisher", listPublisher);
+        result.put("listPaper", listPaper);
 
         return result;
     }

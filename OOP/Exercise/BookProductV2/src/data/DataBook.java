@@ -169,4 +169,31 @@ public class DataBook {
           }
         }
     }
+
+    //14. Book with publisher from japan
+    public static void getPublisherFromJapan(List<Book> listBook){
+      for (Book book : listBook) {
+        if (book.getPublisher().getCountry().equalsIgnoreCase("Japan")) {
+          System.out.println(book);
+        }
+      }
+    }
+
+    //15. Book with genre fantasy
+    public static void getBookGenreFantasy(List<Book> listBook){
+      for (Book book : listBook){
+        if(book.getAuthor().getGenre().equalsIgnoreCase("fantasy")){
+          System.out.println(book);
+        }
+      }
+    }
+    
+    //16. All Paper
+    public static void getAllPaper(List<Paper> listPaper){
+      for(Paper paper : listPaper){
+        System.out.println(paper);
+      }
+    }
+
+    //17. 
 }
