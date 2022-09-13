@@ -10,13 +10,13 @@ public class Garment extends ProductItems{
 
     public Garment(String productId, String productType, String productDescription, Double costRate,
             Integer unitOfStock, String productionCode, String productionDate, String garmentsType, String fabrics,
-            String color, String ageGroup, Integer size) {
+            String color, Integer size, String ageGroup) {
         super(productId, productType, productDescription, costRate, unitOfStock, productionCode, productionDate);
         this.garmentsType = garmentsType;
         this.fabrics = fabrics;
         this.color = color;
-        this.ageGroup = ageGroup;
         this.size = size;
+        this.ageGroup = ageGroup;
     }
 
     public String getGarmentsType() {
