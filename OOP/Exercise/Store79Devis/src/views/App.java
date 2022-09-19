@@ -12,17 +12,13 @@ public class App {
         int choiseMenu = Validations.inputTypeNumberLimit(Menu.TEMPLATE_CHOICE_MENU, 0, 4);
         switch (choiseMenu) {
             case 1:
-                // Menu.getMenu(Menu.TEMPLATE_HEADER_PRODUCT_ITEMS, Menu.PRODUCT_ITEMS,
-                // Menu.EXIT_PRODUCT);
                 ProductMenu.itemMenu();
                 break;
             case 2:
-                // Menu.getMenu(Menu.TEMPLATE_HEADER_PRODUCT_SERVICES, Menu.PRODUCT_SERVICES,
-                // Menu.EXIT_PRODUCT);
                 ProductMenu.serviceMenu();
                 break;
             case 3:
-                // Model.viewCartShop();
+                CartShop.viewCART_SHOP();
                 break;
             case 4:
                 ProductMenu.searchMenu();

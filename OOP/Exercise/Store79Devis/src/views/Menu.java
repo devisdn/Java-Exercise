@@ -19,13 +19,16 @@ public class Menu extends StoreRepository {
       TEMPLATE_HEADER_PRODUCT_SERVICES = " Product Services Menu ",
       EXIT_MENU = "Exit             ",
       EXIT_PRODUCT = "Back To Main Menu",
-      TEMPLATE_HEADER_SEARCH_PRODUCT = "Searching Product",
+      TEMPLATE_HEADER_SEARCH_PRODUCT = "   Searching Product   ",
       TEMPLATE_SEARCH_BY_TYPE = "Masukan Type Product yang dicari ",
       TEMPLATE_SEARCH_BY_DESC = "Masukan Deskripsi Product yang dicari ",
       TEMPLATE_CHOICE_MENU = "Please Choice one of The menu",
       LINE_ITEM_SERVICE = "+----+----------------+----------------------------------------------+------------+--------------------+%n",
       HEADER_ITEM_SERVICE = "| No | Product ID     | Product Description                          | Quantity   |      Price         |%n",
       FOOTER_ITEM_SERVICE = "| 00 |   Back To Main Menu                                                                             |%n",
+      LiNE_CART_SHOP = "+----+----------------+------------------------------------------+------------+--------------------+--------------------+%n",
+      TEMPLATE_HEADER_Cart_SHOP = "| No | Product ID     | Product Description                      | Quantity   |      Price         |  Total Price       |%n",
+      LEFT_ALIGN_FORMAT_CART = "| %-2d | %-14s | %-40s | %-11s| %-18s | %-18s |%n",
       LEFT_ALIGN_FORMAT_PRODUCT = "| %-2d | %-14s | %-44s | %-11s| %-18s |%n";
 
   public static void getMenu(String menuHeader, String[] data, String exit) {
@@ -54,6 +57,12 @@ public class Menu extends StoreRepository {
     System.out.format(FOOTER_ITEM_SERVICE);
     System.out.format(LINE_ITEM_SERVICE);
 
+  }
+
+  public static void getTemplateMenuProductHeaderCart() {
+    System.out.format(LiNE_CART_SHOP);
+    System.out.format(HEADER_ITEM_SERVICE);
+    System.out.format(LiNE_CART_SHOP);
   }
 
   public static String convertToCurrency(double money) {

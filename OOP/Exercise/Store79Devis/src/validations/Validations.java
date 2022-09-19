@@ -2,6 +2,8 @@ package validations;
 
 import java.util.Scanner;
 
+import views.CartShop;
+
 public class Validations {
 
   public static String inputTypeAlphabetLimit(String question, String[] listWord) {
@@ -80,23 +82,29 @@ public class Validations {
 
   public static String validateProduct(String question) {
     boolean isValid = false;
-    String idProduct;
+    String idProduct = "";
 
     do {
       System.out.print(question);
       idProduct = INPUT.nextLine();
-      // isValid = Model.checkDataByIDProduct(idProduct);
+      isValid = CartShop.checkDataByIDProduct(idProduct);
       if (idProduct.equalsIgnoreCase("00")) {
         isValid = true;
       } else {
-        // if (Model.checkDataByIDProduct(idProduct)) {
-        isValid = true;
-        // } else {
-        System.out.println("Sorry, Id Product not found!\nPlease input again.\n");
+        if (isValid) {
+          isValid = true;
+        } else {
+          System.out.println("Sorry, Id Product not found!\nPlease input again.\n");
+        }
       }
-      // }
     } while (!isValid);
+
     return idProduct;
+
+  }
+
+  private static boolean checkDataByIDProduct(String idProduct) {
+    return false;
   }
 
   public static final Scanner INPUT = new Scanner(System.in);
