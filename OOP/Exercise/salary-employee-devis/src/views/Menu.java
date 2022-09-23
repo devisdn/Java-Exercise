@@ -27,6 +27,7 @@ public class Menu {
                 break;
             case 2:
                 CreateEmployeData.add();
+                Validation.backToMainMenu();
                 break;
             case 3:
                 UpdateEmployeeData.update();

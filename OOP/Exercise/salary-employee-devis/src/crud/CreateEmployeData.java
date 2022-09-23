@@ -8,9 +8,8 @@ import validations.Validation;
 
 public class CreateEmployeData {
     public static void add(){
-        ReadEmployeeData.showEmployeeData(ReadEmployeeData.allEmployee);
-
         String position[] = {"Employee","Analyst","Programmer","Project Leader"}, placement[] = {"Garut", "Bandung", "Jakarta", "Bogor", "Bekasi"};
+        
         String addPosition = Validation.inputLetterLimit("Masukkan posisi kerja : ", position);
         String addEmployeeId = Validation.checkInputId("Masukkan Id Karyawan : ");
         String addName = Validation.inputLetterType("Masukkan nama : ");
@@ -40,7 +39,5 @@ public class CreateEmployeData {
         }
         System.out.println("Data berhasil ditambahkan");
         ReadEmployeeData.showEmployeeData(ReadEmployeeData.allEmployee);
-        
-        Validation.backToMainMenu();
     }
 }
