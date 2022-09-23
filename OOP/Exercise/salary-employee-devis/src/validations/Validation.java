@@ -34,7 +34,7 @@ public class Validation {
           } while (isRepeat);
           return angka;
       }
-      public static int inputNoUnderage(String question) {
+      public static int inputAge(String question) {
           boolean isRepeat;
           int angka;
           do {

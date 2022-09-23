@@ -15,7 +15,7 @@ public class CreateEmployeData {
         String addEmployeeId = Validation.checkInputId("Masukkan Id Karyawan : ");
         String addName = Validation.inputLetterType("Masukkan nama : ");
         String addAddress = Validation.inputLetterType("Masukkan alamat : ");
-        Integer addAge = Validation.inputNoUnderage("Masukkan usia : ");
+        Integer addAge = Validation.inputAge("Masukkan usia : ");
         String addJobDesc = Validation.inputLetterType("Masukkan Deskripsi pekerjaan : ");
         String addPlacement = Validation.inputLetterLimit("Masukkan lokasi penempatan kerja (Garut/Bandung/Jakarta/Bekasi/Bogor) : ", placement);
 
