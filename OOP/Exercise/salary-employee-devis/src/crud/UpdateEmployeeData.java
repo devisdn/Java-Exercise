@@ -8,12 +8,12 @@ public class UpdateEmployeeData {
         String placement[] = {"Garut", "Bandung", "Jakarta", "Bogor", "Bekasi"};
         ReadEmployeeData.showEmployeeData(ReadEmployeeData.allEmployee);
 
-        String id = Validation.inputTypeId("Masukkan Id Karyawan : ");
-        String newPlacement = Validation.inputLetterLimit("Masukan Lokasi penempatan kerja baru, Garut/Bandung/Jakarta/Bekasi/Bogor : ", placement);
-        String confirm = Validation.inputLetterYesNo("Simpan perubahan (ya/tidak)? ");
+        String id = Validation.inputTypeId("\nMasukkan Id Karyawan : ");
+        String newPlacement = Validation.inputLetterLimit("\nMasukan Lokasi penempatan kerja baru, Garut/Bandung/Jakarta/Bekasi/Bogor : ", placement);
+        String confirm = Validation.inputLetterYesNo("\nSimpan perubahan (ya/tidak)? ");
         if (confirm.equalsIgnoreCase("ya")){
             ReadEmployeeData.allEmployee.get(ReadEmployeeData.getDataById(id)).setPlacement(newPlacement);
-            System.out.println("Data berhasil diupdate!");
+            System.out.println("\nData berhasil diupdate!");
             ReadEmployeeData.showEmployeeData(ReadEmployeeData.allEmployee);
         }else{
             Menu.mainMenu();
