@@ -24,10 +24,10 @@ public class Menu {
         switch (choice){
             case 1:
                 ReadEmployeeData.showEmployeeData(ReadEmployeeData.allEmployee);
+                Validation.backToMainMenu();
                 break;
             case 2:
                 CreateEmployeData.add();
-                Validation.backToMainMenu();
                 break;
             case 3:
                 UpdateEmployeeData.update();

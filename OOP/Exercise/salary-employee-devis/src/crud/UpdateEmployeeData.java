@@ -6,6 +6,7 @@ import views.Menu;
 public class UpdateEmployeeData {
     public static void update(){
         String placement[] = {"Garut", "Bandung", "Jakarta", "Bogor", "Bekasi"};
+
         ReadEmployeeData.showEmployeeData(ReadEmployeeData.allEmployee);
 
         String id = Validation.inputTypeId("\nMasukkan Id Karyawan : ");
@@ -15,10 +16,9 @@ public class UpdateEmployeeData {
             ReadEmployeeData.allEmployee.get(ReadEmployeeData.getDataById(id)).setPlacement(newPlacement);
             System.out.println("\nData berhasil diupdate!");
             ReadEmployeeData.showEmployeeData(ReadEmployeeData.allEmployee);
+            Validation.backToMainMenu();
         }else{
             Menu.mainMenu();
         }
-        
-        Validation.backToMainMenu();
     }    
 }

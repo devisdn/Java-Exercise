@@ -5,7 +5,6 @@ import java.util.*;
 import models.*;
 import currency.FormatCurrency;
 import repositories.EmployeeRepository;
-import validations.Validation;
 
 public class ReadEmployeeData {
     public static List<Employee> allEmployee = EmployeeRepository.getAllEmployee();
@@ -41,7 +40,5 @@ public class ReadEmployeeData {
         System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+");
         System.out.printf("| %-3s | %-174s |%n", "0.", "Back to Menu");
         System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+");
-        
-        Validation.backToMainMenu();
     }
 }

@@ -11,7 +11,7 @@ public class SearchEmployeeData {
     }
 
     public static void search(){
-        String search = Validation.inputLetterType("Silahkan Masukkan lokasi penempatan kerja : ");
+        String search = Validation.inputLetterType("\nSilahkan Masukkan lokasi penempatan kerja : ");
         ReadEmployeeData.showEmployeeData(SearchEmployeeData.getEmployeeByPlacement(search));
         Validation.backToMainMenu();
     }

@@ -10,6 +10,8 @@ public class CreateEmployeData {
     public static void add(){
         String position[] = {"Employee","Analyst","Programmer","Project Leader"}, placement[] = {"Garut", "Bandung", "Jakarta", "Bogor", "Bekasi"};
 
+        ReadEmployeeData.showEmployeeData(ReadEmployeeData.allEmployee);
+
         String addPosition = Validation.inputLetterLimit("\nMasukkan posisi kerja : ", position);
         String addEmployeeId = Validation.checkInputId("\nMasukkan Id Karyawan : ");
         String addName = Validation.inputLetterType("\nMasukkan nama : ");
@@ -39,5 +41,6 @@ public class CreateEmployeData {
         }
         System.out.println("\nData berhasil ditambahkan");
         ReadEmployeeData.showEmployeeData(ReadEmployeeData.allEmployee);
+        Validation.backToMainMenu();
     }
 }
