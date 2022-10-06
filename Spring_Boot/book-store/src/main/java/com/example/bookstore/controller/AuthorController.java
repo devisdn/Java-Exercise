@@ -16,6 +16,28 @@ public class AuthorController {
     @Autowired
     AuthorRepository authorRepository;
 
+    @PostMapping("/authors")
+    public ResponseEntity<Object> createAuthor(@RequestBody Author authorParam){
+      try {
+        Map<String, Object> result = new HashMap<>();
+        Author author = authorRepository.save(new Author(
+          authorParam.getAuthorFirstName(),
+          authorParam.getAuthorLastName(),
+          authorParam.getGender(),
+          authorParam.getAge(),
+          authorParam.getCountry(),
+          authorParam.getRating()
+        ));
+        HttpStatus status = HttpStatus.CREATED;
+        result.put("status", "201");
+        result.put("message", "Create Data Success!");
+        result.put("data", author);
+        return new ResponseEntity<Object>(result, status);
+      } catch (Exception e) {
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+      }
+    }
+
     @GetMapping("/authors")
     public ResponseEntity<Object> getAllAuthors(){
         try {
@@ -53,28 +75,6 @@ public class AuthorController {
           result.put("message", "Read data fail, id not found.");
         }
   
-        return new ResponseEntity<Object>(result, status);
-      } catch (Exception e) {
-        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-      }
-    }
-
-    @PostMapping("/authors")
-    public ResponseEntity<Object> createAuthor(@RequestBody Author authorParam){
-      try {
-        Map<String, Object> result = new HashMap<>();
-        Author author = authorRepository.save(new Author(
-          authorParam.getAuthorFirstName(),
-          authorParam.getAuthorLastName(),
-          authorParam.getGender(),
-          authorParam.getAge(),
-          authorParam.getCountry(),
-          authorParam.getRating()
-        ));
-        HttpStatus status = HttpStatus.CREATED;
-        result.put("status", "201");
-        result.put("message", "Create Data Success!");
-        result.put("data", author);
         return new ResponseEntity<Object>(result, status);
       } catch (Exception e) {
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
