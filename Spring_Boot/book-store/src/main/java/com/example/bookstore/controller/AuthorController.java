@@ -4,14 +4,7 @@ import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.bookstore.model.Author;
 import com.example.bookstore.repository.AuthorRepository;
@@ -104,7 +97,7 @@ public class AuthorController {
           authorData.setRating(authorParam.getRating());
           authorRepository.save(authorData);
           result.put("status", "200");
-          result.put("message", "Data updated successfully.");
+          result.put("message", "Update data success.");
           result.put("data", authorData);
           status = HttpStatus.OK;
         } else {
@@ -128,7 +121,7 @@ public class AuthorController {
           authorRepository.deleteById(id);
           status = HttpStatus.OK;
           result.put("status", "200");
-          result.put("message", "Data deleted successfully.");
+          result.put("message", "Delete data success.");
         } else {
           status = HttpStatus.NOT_FOUND;
           result.put("status", "404");

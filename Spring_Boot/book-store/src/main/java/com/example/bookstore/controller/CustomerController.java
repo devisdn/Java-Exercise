@@ -1,21 +1,11 @@
 package com.example.bookstore.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.bookstore.model.Customer;
 import com.example.bookstore.repository.CustomerRepository;
@@ -26,7 +16,6 @@ public class CustomerController {
   @Autowired
   CustomerRepository customerRepository;
 
-  // Create
   @PostMapping("/customers")
   public ResponseEntity<Object> createCustomer(@RequestBody Customer customerParam) {
     try {
@@ -50,7 +39,6 @@ public class CustomerController {
     }
   }
 
-  // Read
   @GetMapping("/customers")
   public ResponseEntity<Object> getAllCustomer(){
     try {
@@ -70,7 +58,6 @@ public class CustomerController {
     }
   }
 
-  // Update
   @PutMapping("/customers/{id}")
   public ResponseEntity<Object> updateCustomer(@PathVariable(value = "id") Long id, @RequestBody Customer customerParam){
     try {
@@ -87,7 +74,7 @@ public class CustomerController {
         customerData.setPostalCode(customerParam.getPostalCode());
         customerData.setEmail(customerParam.getEmail());
         result.put("status", "200");
-        result.put("message", "Data Updated Successfully.");
+        result.put("message", "Update data success.");
         result.put("data", customerData);
         status = HttpStatus.OK;
       } else {
@@ -101,7 +88,6 @@ public class CustomerController {
     }
   }
 
-  // Delete
   @DeleteMapping("/customers/{id}")
   public ResponseEntity<Object> deleteCustomerById(@PathVariable(value = "id") Long id) {
     try {
@@ -112,7 +98,7 @@ public class CustomerController {
         customerRepository.deleteById(id);
         status = HttpStatus.OK;
         result.put("status", "200");
-        result.put("message", "Data deleted successfully.");
+        result.put("message", "Delete data success.");
       } else {
         status = HttpStatus.NOT_FOUND;
         result.put("status", "404");
