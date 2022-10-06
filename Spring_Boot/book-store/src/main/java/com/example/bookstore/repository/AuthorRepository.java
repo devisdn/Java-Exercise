@@ -9,9 +9,9 @@ import com.example.bookstore.model.Author;
 
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long>{
-  List<Author> findByAuthorFirstNameContaining(String authorFirstName);
-  List<Author> findByAuthorLastNameContaining(String authorLastName);
+  List<Author> findByAuthorFirstName(String authorFirstName);
+  List<Author> findByAuthorLastName(String authorLastName);
   List<Author> findByGender(String gender);
-  List<Author> findByCountryContaining(String country);
+  List<Author> findByCountry(String country);
   List<Author> findByRating(String rating);
 }
