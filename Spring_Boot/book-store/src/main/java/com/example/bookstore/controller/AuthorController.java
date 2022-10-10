@@ -111,6 +111,20 @@ public class AuthorController {
       }
     }
 
+    @DeleteMapping("/authors")
+    public ResponseEntity<Object> deleteAllAuthor(){
+      try {
+        authorRepository.deleteAll();
+        Map<String, Object> result = new HashMap<>();
+        HttpStatus status = HttpStatus.OK;
+        result.put("status", "200");
+        result.put("message", "Delete All data success.");
+        return new ResponseEntity<Object>(result, status);
+      } catch (Exception e) {
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+      }
+    }
+  
     @DeleteMapping("/authors/{id}")
     public ResponseEntity<Object> deleteAuthorById(@PathVariable(value = "id") Long id) {
       try {

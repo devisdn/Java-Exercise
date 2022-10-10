@@ -1,5 +1,7 @@
 package com.example.bookstore.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -26,6 +28,10 @@ public class Author {
     
     @Column(name = "rating")
     private String rating;
+    
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author", cascade = CascadeType.ALL)
+    // mapped by diambil dari entity Book
+    private List<Book> book;
     
     public Author(){}
     

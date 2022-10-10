@@ -58,6 +58,30 @@ public class CustomerController {
     }
   }
 
+  @GetMapping("/customers/{id}")
+  public ResponseEntity<Object> getAuthorById(@PathVariable(value = "id") Long id){
+    try {
+      Map<String, Object> result = new HashMap<>();
+      Optional<Customer> customerData = customerRepository.findById(id);
+      HttpStatus status;
+
+      if (customerData.isPresent()) {
+        status = HttpStatus.OK;
+        result.put("status", "200");
+        result.put("message", "Read data success.");
+        result.put("data", customerData.get());
+      } else {
+        status = HttpStatus.NOT_FOUND;
+        result.put("status", "404");
+        result.put("message", "Read data fail, id not found.");
+      }
+
+      return new ResponseEntity<Object>(result, status);
+    } catch (Exception e) {
+      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
   @PutMapping("/customers/{id}")
   public ResponseEntity<Object> updateCustomer(@PathVariable(value = "id") Long id, @RequestBody Customer customerParam){
     try {

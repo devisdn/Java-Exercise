@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "customers")
 public class Customer {
@@ -16,6 +18,8 @@ public class Customer {
     private String customerName;
 
     @Column(name = "date_of_birth", nullable = false)
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date dateOfBirth;
 
     @Column(name = "country", nullable = false)
