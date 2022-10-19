@@ -49,12 +49,12 @@ public class BookController {
         if (listAllBook.isEmpty()) {
           status = HttpStatus.NOT_FOUND;
           result.put("status", "404");
-          result.put("message", "Data paper is empty.");
+          result.put("message", "Data book is empty.");
           result.put("data", listAllBook);
           return new ResponseEntity<Object>(result, status);
         }
         result.put("status", "200");
-        result.put("message", "Read all data paper success.");
+        result.put("message", "Read all data book success.");
         result.put("data", listAllBook);
         return new ResponseEntity<Object>(result, status);
       } catch (Exception e) {
@@ -63,7 +63,7 @@ public class BookController {
     }
 
     @PutMapping("/book/update/{bookId}")
-    public ResponseEntity<Object> updatepaper(@PathVariable("bookId") long bookId, @RequestBody Book book) {
+    public ResponseEntity<Object> updateBook(@PathVariable("bookId") long bookId, @RequestBody Book book) {
       Optional<Book> bookData = bookRepository.findById(bookId);
       Map<String, Object> result = new HashMap<String, Object>();
       if (bookData.isPresent()) {
@@ -85,7 +85,7 @@ public class BookController {
     }
 
     @DeleteMapping("/book/deleteAll")
-    public ResponseEntity<Object> deleteAllPaper(){
+    public ResponseEntity<Object> deleteAllbook(){
       try {
         bookRepository.deleteAll();
         Map<String, Object> result = new HashMap<String, Object>();
@@ -98,8 +98,8 @@ public class BookController {
       }
     }
 
-    @DeleteMapping("/book/delete/{paperId}")
-    public ResponseEntity<Object> deletePaperById(@PathVariable("bookId") Long bookId) {
+    @DeleteMapping("/book/delete/{bookId}")
+    public ResponseEntity<Object> deleteBookById(@PathVariable("bookId") Long bookId) {
       try {
         Map<String, Object> result = new HashMap<>();
         Optional<Book> book = bookRepository.findById(bookId);
